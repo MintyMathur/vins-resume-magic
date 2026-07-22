@@ -537,6 +537,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
+  // New tailoring session (reset JD for another job)
+  const btnNewTailoring = document.getElementById('btn-new-tailoring');
+  if (btnNewTailoring) {
+    btnNewTailoring.addEventListener('click', async () => {
+      jobDescText = null;
+      tailoredResult = null;
+      const jdTextarea = document.getElementById('jd-textarea');
+      if (jdTextarea) jdTextarea.value = '';
+      await saveJobDescription('');
+      updateStepStates();
+      showView('view-jd');
+      showToast('Ready to tailor for another job description!', 'info');
+    });
+  }
+
   // Back to JD from diff
   document.getElementById('btn-back-to-jd').addEventListener('click', () => {
     showView('view-jd');

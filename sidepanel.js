@@ -59960,6 +59960,19 @@ Return ONLY valid JSON matching this exact structure:
             btn.textContent = "Export .docx";
           }
         });
+        const btnNewTailoring = document.getElementById("btn-new-tailoring");
+        if (btnNewTailoring) {
+          btnNewTailoring.addEventListener("click", async () => {
+            jobDescText = null;
+            tailoredResult = null;
+            const jdTextarea2 = document.getElementById("jd-textarea");
+            if (jdTextarea2) jdTextarea2.value = "";
+            await saveJobDescription("");
+            updateStepStates();
+            showView("view-jd");
+            showToast("Ready to tailor for another job description!", "info");
+          });
+        }
         document.getElementById("btn-back-to-jd").addEventListener("click", () => {
           showView("view-jd");
         });
