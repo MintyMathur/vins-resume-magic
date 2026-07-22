@@ -1,0 +1,25 @@
+{
+  "name": "resume-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "background.js",
+  "scripts": {
+    "build": "npx esbuild src/sidepanel.js --bundle --outfile=sidepanel.js --format=iife --platform=browser",
+    "watch": "npx esbuild src/sidepanel.js --bundle --outfile=sidepanel.js --format=iife --platform=browser --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "docx": "^9.7.1",
+    "mammoth": "^1.12.0",
+    "pdfjs-dist": "^3.11.174"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
+  }
+}

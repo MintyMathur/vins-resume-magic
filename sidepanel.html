@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vin's Resume Magic</title>
+  <link rel="stylesheet" href="sidepanel.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Hidden file input -->
+  <input type="file" id="file-input" accept=".pdf,.docx,.doc" hidden>
+
+  <div id="app">
+    <!-- ===== Header ===== -->
+    <header class="header">
+      <div class="header-brand">
+        <div class="header-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+            <path d="M5 3v4"/>
+            <path d="M19 17v4"/>
+            <path d="M3 5h4"/>
+            <path d="M17 19h4"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="header-title">Vin's Resume Magic <span class="magic-badge">AI 1.0</span></h1>
+          <p class="header-subtitle">90%+ ATS Job Matching Engine</p>
+        </div>
+      </div>
+      <button class="btn-icon" id="btn-settings" title="Settings">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </button>
+    </header>
+
+    <main class="main-content">
+
+      <!-- ===== Welcome — Upload Resume ===== -->
+      <section id="view-welcome" class="view active">
+        <!-- Workflow Steps -->
+        <div class="workflow-steps">
+          <div class="step active" data-step="resume">
+            <div class="step-indicator"><div class="step-dot"></div><div class="step-line"></div></div>
+            <div class="step-content">
+              <div class="step-title">Upload Resume</div>
+              <div class="step-desc">Upload your base resume (.pdf or .docx)</div>
+            </div>
+            <span class="step-status">Active</span>
+          </div>
+          <div class="step" data-step="jd">
+            <div class="step-indicator"><div class="step-dot"></div><div class="step-line"></div></div>
+            <div class="step-content">
+              <div class="step-title">Import Job Posting</div>
+              <div class="step-desc">Extract from active tab or paste JD</div>
+            </div>
+            <span class="step-status">Pending</span>
+          </div>
+          <div class="step" data-step="tailor">
+            <div class="step-indicator"><div class="step-dot"></div><div class="step-line"></div></div>
+            <div class="step-content">
+              <div class="step-title">Magic ATS Tailoring</div>
+              <div class="step-desc">90%+ match rewrite & timeline guardrails</div>
+            </div>
+            <span class="step-status">Pending</span>
+          </div>
+          <div class="step" data-step="review">
+            <div class="step-indicator"><div class="step-dot"></div></div>
+            <div class="step-content">
+              <div class="step-title">Review & Export</div>
+              <div class="step-desc">Diff view & dynamic ATS file export</div>
+            </div>
+            <span class="step-status">Pending</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Empty state + Upload -->
+        <div class="empty-state">
+          <div class="empty-state-icon">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+          </div>
+          <h2 class="empty-state-title">Upload Base Resume</h2>
+          <p class="empty-state-text">Start by uploading your resume. Extracted 100% locally in your browser before tailoring.</p>
+          <button class="btn btn-primary btn-magic" id="btn-upload-resume">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            Upload Resume
+          </button>
+          <p class="empty-state-hint">Supports .pdf and .docx</p>
+
+          <div class="drop-zone" id="drop-zone">
+            <div class="drop-zone-content">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+              <span>or drag and drop your file here</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Parsing / Loading ===== -->
+      <section id="view-parsing" class="view">
+        <div class="parsing-container">
+          <div class="parsing-header">
+            <div class="magic-spinner"></div>
+            <h2 class="parsing-title" id="parsing-title">Extracting Resume Text</h2>
+            <p class="parsing-file" id="parsing-filename">resume.pdf</p>
+            <div class="parsing-timer" id="parsing-timer">⏱️ 00:00.0s</div>
+          </div>
+          <div class="parsing-steps">
+            <div class="parsing-step" data-step="extract">
+              <div class="parsing-dot"></div>
+              <div class="parsing-label">Local text extraction</div>
+            </div>
+            <div class="parsing-step" data-step="ready">
+              <div class="parsing-dot"></div>
+              <div class="parsing-label">Ready for Job Matching</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Job Description Import ===== -->
+      <section id="view-jd" class="view">
+        <div class="view-toolbar">
+          <h2 class="view-title">Job Description</h2>
+          <div class="view-toolbar-actions">
+            <button class="btn btn-secondary btn-sm" id="btn-reupload" title="Re-upload base resume">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+              Re-upload Resume
+            </button>
+          </div>
+        </div>
+
+        <!-- Resume Preview Card -->
+        <div class="card resume-preview-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">✓ Base Resume Ready</h3>
+              <p class="card-subtitle" id="resume-char-count">0 characters extracted</p>
+            </div>
+            <span class="badge badge-accent">Extracted</span>
+          </div>
+          <div class="resume-preview-text-box">
+            <p id="resume-preview-text" class="text-secondary text-sm"></p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- JD import area -->
+        <div class="jd-section">
+          <div class="jd-section-header">
+            <h3 class="card-title">Target Job Description</h3>
+            <button class="btn btn-primary btn-sm btn-magic" id="btn-import-jd">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Import from Active Tab
+            </button>
+          </div>
+          <textarea class="form-textarea jd-textarea" id="jd-textarea" placeholder="Paste the target job description here, or click 'Import from Active Tab' to scrape LinkedIn, Lever, Greenhouse, Workday, etc..." rows="10"></textarea>
+          <div class="jd-actions">
+            <button class="btn btn-ghost btn-sm" id="btn-clear-jd">Clear</button>
+            <button class="btn btn-primary btn-magic" id="btn-tailor" disabled>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+              </svg>
+              Run Resume Magic
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Diff View ===== -->
+      <section id="view-diff" class="view">
+        <div class="view-toolbar">
+          <h2 class="view-title">Magic Diff Review</h2>
+          <div class="view-toolbar-actions">
+            <button class="btn btn-ghost btn-sm" id="btn-back-to-jd">← Back</button>
+            <button class="btn btn-primary btn-sm btn-magic" id="btn-finalize">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Export ATS .docx
+            </button>
+          </div>
+        </div>
+        <div id="diff-content"></div>
+      </section>
+
+      <!-- ===== Settings ===== -->
+      <section id="view-settings" class="view">
+        <div class="view-toolbar">
+          <h2 class="view-title">Settings</h2>
+          <button class="btn btn-ghost btn-sm" id="btn-back-settings">← Back</button>
+        </div>
+
+        <div class="card" style="margin-top: var(--space-4);">
+          <div class="card-header">
+            <h3 class="card-title">About Vin's Resume Magic</h3>
+          </div>
+          <p class="text-secondary text-sm">Vin's Resume Magic v1.0.0</p>
+          <p class="text-secondary text-sm" style="margin-top: var(--space-1);">Deeply re-architects and tailors your resume bullets to match any job description with 90%+ ATS accuracy. Guardrails ensure historical timeline integrity for older roles.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span class="footer-text">Vin's Resume Magic v1.0 • Built with AI</span>
+    </footer>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
